@@ -2,82 +2,104 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クイズ大会テロップ</title>
 <style>
-html,body{
-margin:0;
-overflow:hidden;
-background:transparent;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
 }
 
-.ticker{
-width:100%;
-overflow:hidden;
-white-space:nowrap;
-font-family:"Yu Gothic","Meiryo",sans-serif;
-font-size:52px;
-font-weight:900;
+.ticker {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.ticker span{
-display:inline-block;
-padding-left:100%;
-animation:
-scroll 22s linear infinite,
-glow 2.8s ease-in-out infinite;
+.text {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    display: inline-block;
+    padding: 20px 40px;
+    font-family: "Yu Gothic", "Meiryo", sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: 1px;
 
-background:linear-gradient(
-90deg,
-#8FDFFF 0%,
-#DFF8FF 25%,
-#FFFFFF 50%,
-#DFF8FF 75%,
-#8FDFFF 100%
-);
+    background: linear-gradient(
+        90deg,
+        #7fdfff 0%,
+        #dff8ff 22%,
+        #ffffff 42%,
+        #bfc7d1 50%,
+        #ffffff 58%,
+        #dff8ff 78%,
+        #7fdfff 100%
+    );
+    background-size: 300% 100%;
+    background-position: 0% 50%;
 
-background-size:200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+    filter:
+        drop-shadow(0 0 4px rgba(140, 225, 255, .75))
+        drop-shadow(0 0 10px rgba(190, 240, 255, .8))
+        drop-shadow(0 0 18px rgba(255, 255, 255, .55));
 
-filter:drop-shadow(0 0 4px rgba(150,230,255,.7))
-drop-shadow(0 0 10px rgba(180,240,255,.8))
-drop-shadow(0 0 18px rgba(255,255,255,.6));
+    animation:
+        scroll-left 20s linear infinite,
+        shine 2.8s linear infinite,
+        glow 2.8s ease-in-out infinite;
 }
 
-@keyframes scroll{
-from{transform:translateX(0);}
-to{transform:translateX(-100%);}
+@keyframes scroll-left {
+    from {
+        left: 100%;
+        transform: translateY(-50%);
+    }
+    to {
+        left: 0;
+        transform: translate(-100%, -50%);
+    }
 }
 
-@keyframes glow{
-0%{
-filter:drop-shadow(0 0 4px rgba(150,230,255,.5))
-drop-shadow(0 0 10px rgba(180,240,255,.5))
-drop-shadow(0 0 18px rgba(255,255,255,.4));
+@keyframes shine {
+    from { background-position: 100% 50%; }
+    to   { background-position: -100% 50%; }
 }
 
-50%{
-filter:drop-shadow(0 0 10px rgba(170,240,255,1))
-drop-shadow(0 0 20px rgba(220,250,255,1))
-drop-shadow(0 0 35px rgba(255,255,255,1));
-}
-
-100%{
-filter:drop-shadow(0 0 4px rgba(150,230,255,.5))
-drop-shadow(0 0 10px rgba(180,240,255,.5))
-drop-shadow(0 0 18px rgba(255,255,255,.4));
-}
+@keyframes glow {
+    0%, 100% {
+        filter:
+            drop-shadow(0 0 3px rgba(140, 225, 255, .55))
+            drop-shadow(0 0 8px rgba(190, 240, 255, .6))
+            drop-shadow(0 0 14px rgba(255, 255, 255, .4));
+    }
+    50% {
+        filter:
+            drop-shadow(0 0 8px rgba(140, 225, 255, 1))
+            drop-shadow(0 0 18px rgba(190, 240, 255, 1))
+            drop-shadow(0 0 30px rgba(255, 255, 255, .9));
+    }
 }
 </style>
 </head>
-
 <body>
-
 <div class="ticker">
-<span>
-🎉 本日21時03分〜　クイズ大会開催‼️　優勝者には『わっちゃまチェキ』プレゼント🎁　初見さんも大歓迎❤️‍🔥
-</span>
+    <div class="text">
+        🎉 本日21時03分〜　クイズ大会開催‼️　優勝者には『わっちゃまチェキ』プレゼント🎁　初見さんも大歓迎❤️‍🔥
+    </div>
 </div>
-
 </body>
 </html>
