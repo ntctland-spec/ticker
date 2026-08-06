@@ -2,50 +2,70 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-html, body {
-margin: 0;
-padding: 0;
-width: 100%;
-height: 100%;
-background: transparent;
-overflow: hidden;
+html,body{
+margin:0;
+overflow:hidden;
+background:transparent;
 }
 
-.ticker {
-position: relative;
-width: 100%;
-height: 100%;
-overflow: hidden;
+.ticker{
+width:100%;
+overflow:hidden;
+white-space:nowrap;
+font-family:"Yu Gothic","Meiryo",sans-serif;
+font-size:52px;
+font-weight:900;
 }
 
-.ticker-text {
-position: absolute;
-white-space: nowrap;
-top: 50%;
-left: 100%;
-transform: translateY(-50%);
-font-family: "Meiryo", "Yu Gothic", sans-serif;
-font-size: 48px;
-font-weight: bold;
-color: #ffffff;
--webkit-text-stroke: 2px #000;
-text-shadow:
-2px 2px 0 #000,
--2px 2px 0 #000,
-2px -2px 0 #000,
--2px -2px 0 #000;
-animation: ticker 18s linear infinite;
+.ticker span{
+display:inline-block;
+padding-left:100%;
+animation:
+scroll 22s linear infinite,
+glow 2.8s ease-in-out infinite;
+
+background:linear-gradient(
+90deg,
+#8FDFFF 0%,
+#DFF8FF 25%,
+#FFFFFF 50%,
+#DFF8FF 75%,
+#8FDFFF 100%
+);
+
+background-size:200% auto;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+filter:drop-shadow(0 0 4px rgba(150,230,255,.7))
+drop-shadow(0 0 10px rgba(180,240,255,.8))
+drop-shadow(0 0 18px rgba(255,255,255,.6));
 }
 
-@keyframes ticker {
-from {
-transform: translate(0, -50%);
+@keyframes scroll{
+from{transform:translateX(0);}
+to{transform:translateX(-100%);}
 }
-to {
-transform: translate(calc(-100vw - 100%), -50%);
+
+@keyframes glow{
+0%{
+filter:drop-shadow(0 0 4px rgba(150,230,255,.5))
+drop-shadow(0 0 10px rgba(180,240,255,.5))
+drop-shadow(0 0 18px rgba(255,255,255,.4));
+}
+
+50%{
+filter:drop-shadow(0 0 10px rgba(170,240,255,1))
+drop-shadow(0 0 20px rgba(220,250,255,1))
+drop-shadow(0 0 35px rgba(255,255,255,1));
+}
+
+100%{
+filter:drop-shadow(0 0 4px rgba(150,230,255,.5))
+drop-shadow(0 0 10px rgba(180,240,255,.5))
+drop-shadow(0 0 18px rgba(255,255,255,.4));
 }
 }
 </style>
@@ -54,9 +74,9 @@ transform: translate(calc(-100vw - 100%), -50%);
 <body>
 
 <div class="ticker">
-<div class="ticker-text">
-🎉 今週金曜 クイズ大会開催！！ 優勝者には「わっちゃまチェキ」プレゼント🎁
-</div>
+<span>
+🎉 本日21時03分〜　クイズ大会開催‼️　優勝者には『わっちゃまチェキ』プレゼント🎁　初見さんも大歓迎❤️‍🔥
+</span>
 </div>
 
 </body>
