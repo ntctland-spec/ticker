@@ -3,103 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>クイズ大会テロップ</title>
+
 <style>
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: transparent;
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+background: transparent;
+overflow: hidden;
 }
 
 .ticker {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    white-space: nowrap;
+position: relative;
+width: 100%;
+height: 100%;
+overflow: hidden;
 }
 
-.text {
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translateY(-50%);
-    display: inline-block;
-    padding: 20px 40px;
-    font-family: "Yu Gothic", "Meiryo", sans-serif;
-    font-size: 52px;
-    font-weight: 900;
-    letter-spacing: 1px;
-
-    background: linear-gradient(
-        90deg,
-        #7fdfff 0%,
-        #dff8ff 22%,
-        #ffffff 42%,
-        #bfc7d1 50%,
-        #ffffff 58%,
-        #dff8ff 78%,
-        #7fdfff 100%
-    );
-    background-size: 300% 100%;
-    background-position: 0% 50%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-
-    filter:
-        drop-shadow(0 0 4px rgba(140, 225, 255, .75))
-        drop-shadow(0 0 10px rgba(190, 240, 255, .8))
-        drop-shadow(0 0 18px rgba(255, 255, 255, .55));
-
-    animation:
-        scroll-left 20s linear infinite,
-        shine 2.8s linear infinite,
-        glow 2.8s ease-in-out infinite;
+.ticker-text {
+position: absolute;
+white-space: nowrap;
+top: 50%;
+left: 100%;
+transform: translateY(-50%);
+font-family: "Meiryo", "Yu Gothic", sans-serif;
+font-size: 48px;
+font-weight: bold;
+color: #ffffff;
+-webkit-text-stroke: 2px #000;
+text-shadow:
+2px 2px 0 #000,
+-2px 2px 0 #000,
+2px -2px 0 #000,
+-2px -2px 0 #000;
+animation: ticker 18s linear infinite;
 }
 
-@keyframes scroll-left {
-    from {
-        left: 100%;
-        transform: translateY(-50%);
-    }
-    to {
-        left: 0;
-        transform: translate(-100%, -50%);
-    }
+@keyframes ticker {
+from {
+transform: translate(0, -50%);
 }
-
-@keyframes shine {
-    from { background-position: 100% 50%; }
-    to   { background-position: -100% 50%; }
+to {
+transform: translate(calc(-100vw - 100%), -50%);
 }
-
-@keyframes glow {
-    0%, 100% {
-        filter:
-            drop-shadow(0 0 3px rgba(140, 225, 255, .55))
-            drop-shadow(0 0 8px rgba(190, 240, 255, .6))
-            drop-shadow(0 0 14px rgba(255, 255, 255, .4));
-    }
-    50% {
-        filter:
-            drop-shadow(0 0 8px rgba(140, 225, 255, 1))
-            drop-shadow(0 0 18px rgba(190, 240, 255, 1))
-            drop-shadow(0 0 30px rgba(255, 255, 255, .9));
-    }
 }
 </style>
 </head>
+
 <body>
+
 <div class="ticker">
-    <div class="text">
-        🎉 本日21時03分〜　クイズ大会開催‼️　優勝者には『わっちゃまチェキ』プレゼント🎁　初見さんも大歓迎❤️‍🔥
-    </div>
+<div class="ticker-text">
+🎉 本日21時03分〜　クイズ大会開催‼️　優勝者には『わっちゃまチェキ』プレゼント🎁　初見さんも大歓迎❤️‍🔥
 </div>
+</div>
+
 </body>
 </html>
